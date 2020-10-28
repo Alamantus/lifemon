@@ -1,3 +1,22 @@
+# lifemon
+
+lifemon is a life monitoring tool built to further prove that I know how to use React and Bootstrap. Development began October 28, 2020.
+
+## Planned Features
+
+- [ ] Plans
+  - Set "for today" to-do lists and long-term lists with due dates. Each day, it pulls up the previous day's list and allows you to update the list or carry items from yesterday into today.
+- [ ] Journal
+  - Write about your day overall or in chunks based on a particular time. Tracks the weather at the current time/day and (optionally) location.
+- [ ] Mood
+  - Specify and track your mood throughout the day with an optional journal entry about what you were doing. Use emojis for mood icons and keep track of recently-used moods for easy re-selection.
+- [ ] Time
+  - A simple customizable timer for either practicing the [pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) or doing simple countdowns and alarms.
+- [ ] Log
+  - An at-a-glance listing of previous entries that displays date, number of entries, moods, etc. Can be clicked to show a modal popup with more detail or expanded to show the full day's details.
+
+This seems like a pretty decent collection of features to start out with. If I think of more that I like, I'll update this list.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
