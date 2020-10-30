@@ -7,13 +7,13 @@ class TodayView extends Component {
   render() {
     const TODAY_DATE = moment().format('MMMM Do YYYY');
 
-    return <section>
-      <header>
-        <button className="btn btn-primary btn-lg">
+    return <article>
+      <header className="nav justify-content-center">
+        <button className="btn btn-primary btn-lg nav-link">
           <span>{ TODAY_DATE }</span> <Clock style="analog" />
         </button>
       </header>
-    </section>;
+    </article>;
   }
 }
 
