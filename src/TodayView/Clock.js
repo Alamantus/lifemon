@@ -17,15 +17,24 @@ class Clock extends Component {
 
   componentDidMount() {
     this.updateTime();
-    this.interval = setInterval(() => this.updateTime(), 1000);
+    if (!this.props.staticTime) {
+      this.interval = setInterval(() => this.updateTime(), 1000);
+    }
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    if (!this.props.staticTime) {
+      clearInterval(this.interval);
+    }
   }
 
   updateTime() {
-    var date = moment();
+    let date;
+    if (this.props.staticTime) {
+      date = moment(this.props.staticTime);
+    } else {
+      date = moment();
+    }
     this.setState({
       time: date.format('h:mm:ss a'),
       secondAngle: date.seconds() * 6,
