@@ -9,7 +9,7 @@ import './App.css';
 
 import AppMenu from './AppMenu';
 import TodayView from './TodayView';
-import Tasks from './Tasks';
+import Plans from './Plans';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
             </Route>
             */}
             <Route path="/plans">
-              <Tasks />
+              <Plans />
             </Route>
           </Switch>
         </section>
