@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import AppMenu from './AppMenu';
@@ -14,7 +14,7 @@ import Tasks from './Tasks';
 function App() {
   return (
     <Router>
-      <main className="row">
+      <div className="row">
         <AppMenu />
 
         <section className="col">
@@ -39,7 +39,7 @@ function App() {
             </Route>
           </Switch>
         </section>
-      </main>
+      </div>
     </Router>
   );
 }

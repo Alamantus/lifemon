@@ -10,7 +10,7 @@ class TodayView extends Component {
     return <article>
       <header className="nav justify-content-center">
         <button className="btn btn-primary btn-lg nav-link">
-          <span>{ TODAY_DATE }</span> <Clock style="analog" />
+          <span>{ TODAY_DATE }</span> <Clock display="analog" />
         </button>
       </header>
     </article>;

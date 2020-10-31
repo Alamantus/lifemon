@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 import localforage from 'localforage';
-import stringHash from '@sindresorhus/string-hash';
 
 const VIEWS = { DAY: 0, LONGTERM: 1 };
 
@@ -41,7 +40,7 @@ class Tasks extends Component {
     const day = this.getDayFormat(date);
     this.store.getItem(day).then(value => {
       this.setState({
-        day: new Date(day + ' 00:00:00'),
+        day: new Date(date),
         list: value ? value : [],
       }, () => document.getElementById('newPlan').focus());
     });
@@ -96,7 +95,7 @@ class Tasks extends Component {
         </header>
         <form className="mb-2 mx-2" onSubmit={event => this.addPlan(event)}>
           <div className="form-group position-relative">
-            <label for="newPlan" className="sr-only">New Plan</label>
+            <label htmlFor="newPlan" className="sr-only">New Plan</label>
             <input type="text" className="form-control pr-5" id="newPlan" placeholder="New Plan"
               value={ this.state.newPlanInput }
               onInput={ event => this.setState({ newPlanInput: event.target.value }) }
@@ -114,7 +113,7 @@ class Tasks extends Component {
               const key = plan.created;
               return (
                 <article key={ key } class="mb-2 p-2 border">
-                  <label for={`checkbox${key}`} className="sr-only">Mark Complete</label>
+                  <label htmlFor={`checkbox${key}`} className="sr-only">Mark Complete</label>
                   <input type="checkbox" id={ `checkbox${key}` } className="p-1"
                     defaultChecked={ plan.complete } onChange={event => this.setPlanStatus(index, event.target.checked)}
                   /> &nbsp;

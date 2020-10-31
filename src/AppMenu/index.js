@@ -39,7 +39,7 @@ class AppMenu extends Component {
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: 1,
+        zIndex: 9,
         background: '#000000',
         opacity: 0.6,
       }
@@ -67,23 +67,23 @@ class AppMenu extends Component {
             </div>
           </header>
           <nav>
-            <ul className="nav flex-column nav-pills nav-fill">
-              <li className="nav-item text-left">
+            <ul className="nav flex-column nav-pills nav-fill" key="AppMenu">
+              <li className="nav-item text-left" key="AppMenu_Today">
                 <Link to="/" className={ `nav-link${path === '/' ? ' active' : ''}` }>Today</Link>
               </li>
-              <li className="nav-item text-left">
+              <li className="nav-item text-left" key="AppMenu_Plans">
                 <Link to="/plans" className={ `nav-link${path === '/plans' ? ' active' : ''}` }>Plans</Link>
               </li>
-              <li className="nav-item text-left">
+              <li className="nav-item text-left" key="AppMenu_Journal">
                 <Link to="/journal" className={ `nav-link${path === '/journal' ? ' active' : ''}` }>Journal</Link>
               </li>
-              <li className="nav-item text-left">
+              <li className="nav-item text-left" key="AppMenu_Time">
                 <Link to="/time" className={ `nav-link${path === '/time' ? ' active' : ''}` }>Time</Link>
               </li>
-              <li className="nav-item text-left">
+              <li className="nav-item text-left" key="AppMenu_Log">
                 <Link to="/log" className={ `nav-link${path === '/log' ? ' active' : ''}` }>Log</Link>
               </li>
-              <li className="nav-item text-left">
+              <li className="nav-item text-left" key="AppMenu_Settings">
                 <Link to="/settings" className={ `nav-link${path === '/settings' ? ' active' : ''}` }>Settings</Link>
               </li>
             </ul>

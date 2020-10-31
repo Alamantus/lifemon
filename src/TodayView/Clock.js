@@ -44,7 +44,7 @@ class Clock extends Component {
   }
 
   render() {
-    if (this.props.style === 'analog') {
+    if (this.props.display === 'analog') {
       return (
         <svg viewBox="0 0 100 100" style={{ width: '50px', height: '50px', }}>
           <circle className="analog-clock-face" cx="50" cy="50" r="45" />
