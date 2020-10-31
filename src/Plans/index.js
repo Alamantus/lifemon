@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 import localforage from 'localforage';
 
+import Plan from './Plan';
+
 const VIEWS = { DAY: 0, LONGTERM: 1 };
 
 class Tasks extends Component {
@@ -68,15 +70,24 @@ class Tasks extends Component {
   setPlanStatus(index, checked) {
     const list = this.state.list.slice();
     list[index].complete = checked;
-    const date = this.getDayFormat(this.state.day);
-    this.setState({ list }, () => this.store.setItem(date, this.state.list));
+    this.updateList(list);
+  }
+
+  updatePlan(index, newPlan) {
+    const list = this.state.list.slice();
+    list[index] = Object.assign({}, newPlan);
+    this.updateList(list);
   }
 
   deletePlan(index) {
     const list = this.state.list.slice();
     list.splice(index, 1);
+    this.updateList(list);
+  }
+
+  updateList(newList) {
     const date = this.getDayFormat(this.state.day);
-    this.setState({ list }, () => this.store.setItem(date, this.state.list));
+    this.setState({ list: newList }, () => this.store.setItem(date, this.state.list));
   }
   
   render() {
@@ -112,18 +123,12 @@ class Tasks extends Component {
             this.state.list.map((plan, index) => {
               const key = plan.created;
               return (
-                <article key={ key } class="mb-2 p-2 border">
-                  <label htmlFor={`checkbox${key}`} className="sr-only">Mark Complete</label>
-                  <input type="checkbox" id={ `checkbox${key}` } className="p-1"
-                    defaultChecked={ plan.complete } onChange={event => this.setPlanStatus(index, event.target.checked)}
-                  /> &nbsp;
-                  <span title={`Created ${plan.created}`} className={ plan.completed ? 'text-muted' : 'font-weight-bold' }>{ plan.text }</span>
-                  <button type="button" className="btn btn-danger btn-sm float-right" aria-label="Delete"
-                    onClick={() => this.deletePlan(index)}>
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </article>
-              )
+                <Plan key={key} entry={plan}
+                  update={newPlan => this.updatePlan(index, newPlan)}
+                  setStatus={checked => this.setPlanStatus(index, checked)}
+                  delete={() => this.deletePlan(index)}
+                />
+              );
             })
           }
         </div>
